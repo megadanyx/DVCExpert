@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courser</title>
+    <link rel="stylesheet" href="./css/style_product.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nab-bar">
+            <div class="logo"><a href="./index.html" class="logo_home">DCV Expert</a></div>
+            <ul class="nav-links">
+                <li><a href="#">Oferte și reduceri</a></li>
+                <li><a href="#">Noutăți</a></li>
+                <li><a href="#">Recenzii</a></li>
+                <li><a href="#">Despre Noi</a></li>
+            </ul>
+            <div class="buttons">
+                <button class="login">Login</button>
+                <button class="signup">Sign In</button>
+            </div>
+        </nav>
+    </header>
+    <main class="mine_product">
+        <section class="product_head">
+            <div class="product_img">
+                <img class="product_image" src="./img/it_cours/id_3.jpg" alt="product_image">
+            </div>
+            <div class="product_info">
+                <h1 class="product_name">Product Name</h1>
+                <p class="product_shor_description">
+                    Short descrption, Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro nesciunt exercitationem, aliquam, voluptates ipsam maxime amet blanditiis maiores odit eligendi eum praesentium, assumenda soluta ex ad corporis cupiditate voluptatem excepturi.
+                </p>
+                <p class="product_duration_time">Durata: <span class="duration_value">1 luni</span></p>
+                <p class="product_time">Grafic: <span class="grafic_value">Luni, Miercuri, Vineri (19:30 - 21:30)</span></p>
+                <p class="product_old_price">Preț: <span class="old_price_value">20$</span></p>
+                <p class="product_actual_price">Preț redus: <span class="actual_price_value">10$</span></p>
+                <button class="buttn_buy">Înscriere</button>
+            </div>
+            
+        </section>
+        <section class="body_product">
+            <div class="long_description">
+                <h2>Long Description</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro nesciunt exercitationem, aliquam, voluptates ipsam maxime amet blanditiis maiores odit eligendi eum praesentium, assumenda soluta ex ad corporis cupiditate voluptatem excepturi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro nesciunt exercitationem, aliquam, voluptates ipsam maxime amet blanditiis maiores odit eligendi eum praesentium, assumenda soluta ex ad corporis cupiditate voluptatem excepturi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro nesciunt exercitationem, aliquam, voluptates ipsam maxime amet blanditiis maiores odit eligendi eum praesentium, assumenda soluta ex ad corporis cupiditate voluptatem excepturi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro nesciunt exercitationem, aliquam, voluptates ipsam maxime amet blanditiis maiores odit eligendi eum praesentium, assumenda soluta ex ad corporis cupiditate voluptatem excepturi.</p>
+            </div>
+            <div class="curricula_object">
+            <div class="curicula_header">
+                <h2>Programul cursului</h2>
+                
+                <div class="module">
+                    <button class="module_header">Modul 1. Introducere, Noțiuni de bază</button>
+                    <div class="module_content">
+                        <ul>
+                            <li>Apariția și dezvoltarea tehnologiilor web</li>
+                            <li>Noțiunea de server, browser, pagină și site</li>
+                            <li>Ce reprezintă domeniu și hosting</li>
+                            <li>Cum este construită o aplicație web modernă</li>
+                            <li>Ce reprezintă frontend-ul unui site</li>
+                            <li>Ce este un limbaj de marcare (ML)</li>
+                            <li>Limbaje populare de marcare la moment</li>
+                            <li>Funcțiile unui limbaj de marcare</li>
+                            <li>Tehnologiile XML, HTML, XHTML prin comparație</li>
+                            <li>Evoluția limbajului HTML, standardele actuale</li>
+                            <li>Lucrare practică</li>
+                            <li>Exemplu practic de înregistrare domeniu și hosting gratuit</li>
+                            <li>Cum public un mini site?</li>
+                        </ul>
+                    </div>
+                </div>
+        
+                <div class="module">
+                    <button class="module_header">Modul 2. Structura documentului</button>
+                    <div class="module_content">
+                        <ul>
+                            <li>...</li>
+                        </ul>
+                    </div>
+                </div>
+        
+                <div class="module">
+                    <button class="module_header">Modul 3. Clasificarea elementelor HTML</button>
+                    <div class="module_content">
+                        <ul>
+                            <li>...</li>
+                        </ul>
+                    </div>
+                </div>
+        
+            </div>
+                </div>
+            <script>
+                document.querySelectorAll('.module_header').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const content = button.nextElementSibling;
+                        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                    });
+                });
+            </script>
+            <section class="benefits">
+                <div class="benefit__wrap">
+                    <h2 class="benefit_title">Cursul petrece</h2>
+                    <div class="benefit_cards">
+                        <div class="benefit_card">
+                            <div class="benefit_cards_pic">
+                                <img src="./img/teachers/teacher_1.webp" alt="Gourse groupe" class="card_img">
+                            </div>
+                            <h3 class="benefit_cards_titles">Lorem, ipsum dolor.</h3>
+                            <p class="benefits_card_desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi omnis
+                                est ad nemo ex delectus, non adipisci repellendus maxime provident officiis, qui!</p>
+                            <a href="./product.html" class="benefits_card_more">VEZI DETALII</a>
+                        </div>
+                        <div class="benefit_card">
+                            <div class="benefit_cards_pic">
+                                <img src="./img/teachers/teacher_02.jpg" alt="Gourse groupe" class="card_img">
+                            </div>
+                            <h3 class="benefit_cards_titles">Lorem, ipsum dolor.</h3>
+                            <p class="benefits_card_desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi omnis
+                                est ad nemo ex delectus, non adipisci repellendus maxime provident officiis, qui!</p>
+                            <a href="#1" class="benefits_card_more">VEZI DETALII</a>
+                        </div>
+                        <div class="benefit_card">
+                            <div class="benefit_cards_pic">
+                                <img src="./img/teachers/teacher_3.jpg" alt="Gourse groupe" class="card_img">
+                            </div>
+                            <h3 class="benefit_cards_titles">Lorem, ipsum dolor.</h3>
+                            <p class="benefits_card_desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi omnis
+                                est ad nemo ex delectus, non adipisci repellendus maxime provident officiis, qui!</p>
+                            <a href="#1" class="benefits_card_more">VEZI DETALII</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="join_us_form">
+                <div class="join_us_form_wrap">
+                    <h2 class="join_us_form_title">Vreau sa ma inscriu la o lectie de proba</h2>
+                    <p class="join_description_motivation">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis officia est repudiandae debitis beatae? Architecto magnam eius tenetur repudiandae quod tempora, fugiat, cumque pariatur at excepturi suscipit? Dignissimos magni quos ex placeat dolores. Eligendi eveniet numquam obcaecati, cum reiciendis nihil! Dignissimos voluptates natus laboriosam provident.</p>
+                    <form action="#" class="join_us_form_form">
+                        <input type="text" class="join_us_form_input" placeholder="Numele Prenumele">
+                        <input type="phone" class="join_us_form_input" placeholder="Telefon">
+                        <input type="email" class="join_us_form_input" placeholder="Email">
+                        <button class="join_us_form_button">ÎNSCRIE-TE</button>
+                    </form>
+                </div>
+            </section>
+
+        </section>
+
+
+
+
+    </main>
+    <footer class="footer">
+        <div class="footer_container">
+            <div class="footer_section contact_info">
+                <img src="LogoFile" alt="MyLogo" class="footer_logo">
+                <h3>Call us</h3>
+                <p><strong>800 388 80 90</strong> or <strong>667 234 32 67</strong></p>
+                <p>mihai.rotari.nicolai@gmail.com</p>
+                <p>9 AM – 5 PM DC, Monday – Friday</p>
+                <p>Chisinau,Stefan Cel Mare 9999999.</p>
+            </div>
+
+            <div class="footer_section">
+                <h3>Links</h3>
+                <ul>
+                    <li><a href="#">Start Here</a></li>
+                    <li><a href="#">Blogs</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Career</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Demo Account</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_section">
+                <h3>Information</h3>
+                <ul>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Start Here</a></li>
+                    <li><a href="#">Membership Levels</a></li>
+                    <li><a href="#">Purchase Guide</a></li>
+                    <li><a href="#">Become a Teacher</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="footer_section newsletter">
+                <h3>Sign Up for Our Newsletter</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.</p>
+                <div class="newsletter_form">
+                    <input type="email" placeholder="Your e-mail">
+                    <button>SUBSCRIBE</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer_bottom">
+            <p>&copy; 2025 All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+
+</html>
