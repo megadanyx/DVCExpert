@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,13 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courser</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
     <header class="header">
         <nav class="nab-bar">
-            <div class="logo"><a href="./index.html" class="logo_home">DCV Expert</a></div>
+            <div class="logo"><a href="{% url 'home' %}" class="logo_home">DCV Expert</a></div>
             <ul class="nav-links">
                 <li><a href="./products.html">Oferte și reduceri</a></li>
                 <li><a href="#">Noutăți</a></li>
@@ -30,12 +31,12 @@
             <p> O Serie de cursuri <strong>online</strong> care acoperă o gama de domenii tehnologice și obiecte
                 generale, pentru ca tu să înveți și să explorezi noi oportunități.</p>
             <div class="hero-buttons">
-                <a href="./products.html" class="start-trial">Începe cursurile</a>
+                <a href="{% url 'courses' %}" class="start-trial">Începe cursurile</a>
                 <a class="how-it-works">Cum funcționează</a>
             </div>
         </div>
         <div class="hero-image">
-            <img src="./img/learnign_2_export.png" alt="Learning Image">
+            <img src="{% static 'img/learnign_2_export.png' %}" alt="Learning Image">
         </div>
         <div class="stats">
             <div class="stat">

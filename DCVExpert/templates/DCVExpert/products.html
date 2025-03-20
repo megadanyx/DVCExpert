@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,13 +6,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courser</title>
-    <link rel="stylesheet" href="./css/style_products.css">
+    <link rel="stylesheet" href="{% static 'css/style_products.css' %}">
 </head>
 
 <body>
     <header class="header">
         <nav class="nab-bar">
-            <div class="logo"><a href="./index.html" class="logo_home">DCV Expert</a></div>
+            <div class="logo"><a href="{% url 'home' %}" class="logo_home">DCV Expert</a></div>
             <ul class="nav-links">
                 <li><a href="#">Oferte și reduceri</a></li>
                 <li><a href="#">Noutăți</a></li>

@@ -7,7 +7,7 @@ class Price(models.Model):
     new_price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
-        return f"{self.new_price} RON"
+        return f"New price: {self.new_price}"
 
 # Model pentru descrierea cursurilor
 class CourseDescription(models.Model):
@@ -18,12 +18,12 @@ class CourseDescription(models.Model):
     lesson_count = models.IntegerField()
 
     def __str__(self):
-        return self.short_description[:50]  # Afișează primele 50 de caractere
+        return f"Description: {self.short_description[:20]}"  # Afișează primele 20 de caractere
 
 # Model pentru profesori
 class Teacher(models.Model):
     name = models.CharField(max_length=255)
-    short_description = models.TextField()
+    short_description = models.CharField(max_length=1550)
     description = models.TextField()
     email = models.EmailField(unique=True)
     specialization = models.CharField(max_length=255, blank=True, null=True)
@@ -46,7 +46,7 @@ class CurriculumItem(models.Model):
     name = models.CharField(max_length=255)
 
     def __str__(self):
-        return f"{self.curriculum.title} - {self.name}"
+        return f"{self.curriculumId.title} - {self.name}"
 
 # Model pentru cursuri
 class Course(models.Model):
@@ -56,6 +56,7 @@ class Course(models.Model):
     about = models.ForeignKey('CourseDescription', on_delete=models.SET_NULL, null=True)
     curriculum = models.ForeignKey('Curriculum', on_delete=models.SET_NULL, null=True)
     teachers = models.ManyToManyField('Teacher')
+    is_visibil = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
