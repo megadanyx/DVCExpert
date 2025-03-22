@@ -1,44 +1,10 @@
+{% extends 'DCVExpert/template_base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courser</title>
+    {% block css %}
     <link rel="stylesheet" href="{% static 'css/style_products.css' %}">
-</head>
+    {% endblock %}
 
-<body>
-    <header class="header">
-        <nav class="nab-bar">
-            <div class="logo"><a href="{% url 'home' %}" class="logo_home">DCV Expert</a></div>
-            <ul class="nav-links">
-                <li><a href="#">Oferte și reduceri</a></li>
-                <li><a href="#">Noutăți</a></li>
-                <li><a href="#">Recenzii</a></li>
-                <li><a href="#">Despre Noi</a></li>
-            </ul>
-            <div class="buttons">
-                <a href="#" class="login">
-                    Login
-                </a>
-                <div class="login-window">
-                    <form action="{% url 'home' %}" method="POST">
-                        {% comment %} {% csrf_token %} {% endcomment %}
-                        <label for="username">Username</label>
-                        <input type="text" id="username" name="username" required><br><br>
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" required><br><br>
-                        <button type="submit">Login</button>
-                    </form>
-                </div>
-                <a href="#" class="login">
-                    Sign In
-                </a>
-            </div>
-        </nav>
-    </header>
+    {% block content %}
     <section class="searchbar">
             <div class="row justify-content-center">
                 <div class="col-md-6">
@@ -81,84 +47,10 @@
                         class="cours_png">
                     <p class="cours_progress">Progress</p> -->
                 </div>
-                <a href="./product.html" class="cours_learn_more">MAI MULTE DETALII</a>
+                <a href="{% url 'course' Cours.id %}" class="cours_learn_more">MAI MULTE DETALII</a>
                 <div class="mar_botom"></div>
             </div>
             {% endfor %}
         </div>
     </section>
-    <footer class="footer">
-        <div class="footer_container">
-            <div class="footer_section contact_info">
-                <img src="LogoFile" alt="MyLogo" class="footer_logo">
-                <h3>Call us</h3>
-                <p><strong>800 388 80 90</strong> or <strong>667 234 32 67</strong></p>
-                <p>mihai.rotari.nicolai@gmail.com</p>
-                <p>9 AM – 5 PM DC, Monday – Friday</p>
-                <p>Chisinau,Stefan Cel Mare 9999999.</p>
-            </div>
-            
-            <div class="footer_section">
-                <h3>Links</h3>
-                <ul>
-                    <li><a href="#">Start Here</a></li>
-                    <li><a href="#">Blogs</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Career</a></li>
-                    <li><a href="#">Courses</a></li>
-                    <li><a href="#">Demo Account</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer_section">
-                <h3>Information</h3>
-                <ul>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">Start Here</a></li>
-                    <li><a href="#">Membership Levels</a></li>
-                    <li><a href="#">Purchase Guide</a></li>
-                    <li><a href="#">Become a Teacher</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                </ul>
-            </div>
-    
-            <div class="footer_section newsletter">
-                <h3>Sign Up for Our Newsletter</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <div class="newsletter_form">
-                    <input type="email" placeholder="Your e-mail">
-                    <button>SUBSCRIBE</button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="footer_bottom">
-            <p>&copy; 2025 All Rights Reserved</p>
-        </div>
-    </footer>
-    <script>
-        // Detectează click-ul pe document
-        document.addEventListener('click', function(event) {
-            var loginButton = document.querySelector('.login'); // Butonul de login
-            var loginWindow = document.querySelector('.login-window'); // Fereastra de login
-
-            // Verifică dacă click-ul nu a avut loc pe butonul Login sau fereastra Login
-            if (!loginButton.contains(event.target) && !loginWindow.contains(event.target)) {
-                loginWindow.style.display = 'none'; // Ascunde fereastra
-            }
-        });
-
-        // Dezvăluie fereastra când cursorul este pe butonul Login sau pe fereastra de login
-        document.querySelector('.login').addEventListener('mouseover', function() {
-            document.querySelector('.login-window').style.display = 'block';
-        });
-
-        document.querySelector('.login-window').addEventListener('mouseover', function() {
-            document.querySelector('.login-window').style.display = 'block';
-        });
-
-    </script>   
-</body>
-</html>
+    {% endblock %}
