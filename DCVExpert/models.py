@@ -17,8 +17,9 @@ class CourseDescription(models.Model):
     schedule = models.CharField(max_length=255)
     lesson_count = models.IntegerField()
 
+    cours_descriprion_name = models.OneToOneField('Course', on_delete=models.CASCADE, related_name='description',null=True, blank=True)
     def __str__(self):
-        return f"Description: {self.short_description[:20]}"  # Afișează primele 20 de caractere
+        return f"Descriprion for: {self.cours_descriprion_name}"  # Afișează primele 20 de caractere
 
 # Model pentru profesori
 class Teacher(models.Model):

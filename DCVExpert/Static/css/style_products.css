@@ -65,13 +65,60 @@ nav {
 	opacity: 0.75;
 }
 
-.buttons button {
+.buttons a {
     margin-left: 30px;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
     color: #f8f9fa;
     font-size: 95%;
+    text-decoration: none;
+    /* position: relative; */
+}
+.buttons {
+    position: relative;
+}
+
+.login-window {
+    display: none; /* Ascunde fereastra inițial */
+    position: absolute;
+    top: 60px; /* Plasează fereastra sub navbar */
+    left: 0;
+    width: 300px; /* Lățimea feronetei */
+    background-color: #f1f1f1; /* Culoare de fundal */
+    border: 1px solid #ccc; /* Bordură pentru fereastră */
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Umbra pentru efect */
+    z-index: 10;
+    border-radius: 5px;
+}
+
+/* Fereastra devine vizibilă atunci când cursorul este pe butonul Login */
+.login:hover + .login-window {
+    display: block;
+}
+
+/* Stiluri pentru input și butonul din formular */
+.login-window input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.login-window button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-window button:hover {
+    background-color: #45a049;
 }
 
 .login {
@@ -219,7 +266,7 @@ nav {
     /* margin-top: 50px; */
     background-color: #fff;
     box-shadow: 0px 3px 35px rgba(10, 18, 18, 0.507);
-    align-content: center;
+    align-content:flex-start;
     /* margin-bottom: 15px; */
     margin: 15px auto;
 	margin-top: 25px;
@@ -236,21 +283,34 @@ nav {
     margin-bottom: 20px;   
 }
 .cours_img {
-	margin: 0 auto;
+	margin: 0 ;
     width: auto;  /* Fixează lățimea */
-    height: 200px; /* Fixează înălțimea */
+    height: 250px ; /* Fixează înălțimea */
     /* border: 1px solid; */
-    display: flex; /* Centrează imaginea dacă e necesar */
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Ascunde părțile în exces */
+    /* display: flex;  Centrează imaginea dacă e necesar */
+    /* justify-content: center; */
+    /* align-items: center; */
+     overflow: hidden; 
+    /* position: relative; */
+    /* align-items: flex-start; */
+    top:0;
+    left:0;
 }
 
-.cours_png{
+.cours_head_png{
+    /* position: absolute; */
+    top: 0;
+    left: 0;
 	width: 100%;
-    height: 100%;
-	margin: 0 auto;
-    object-fit: cover; /* Face ca imaginea să acopere tot div-ul fără distorsiuni */  display: block;
+    height: 250px;
+	/* margin: 0 auto; */
+    margin: 0;
+    padding: 0;
+    object-fit: cover; /* Face ca imaginea să acopere tot div-ul fără distorsiuni */  
+    display: block;
+    /* padding-right: 15px; */
+    /* margin-left: 0px; */
+    /* margin-right: 0px; */
 }
 .cours_learn_more{
     border: 1px solid rgb(126, 124, 124);
@@ -303,14 +363,14 @@ nav {
 
 }
 .cours_details img{
-    max-width: 25px;
-    max-height: 25px;
-    padding-right: 8px;
+    max-width: 30px;
+    max-height: 30px;
+    padding-right: 10px;
     /* justify-content: center; */
 }
 
 .cours_details p{
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 .Cours:hover , .Cours:focus{
