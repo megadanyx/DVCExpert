@@ -40,7 +40,7 @@ class Course(models.Model):
     photo = models.ImageField(upload_to=course_image_upload_path)
     price = models.ForeignKey('Price', on_delete=models.SET_NULL, null=True)
     about = models.ForeignKey('CourseDescription', on_delete=models.SET_NULL, null=True)
-    # curriculum = models.ForeignKey('Curriculum', on_delete=models.SET_NULL, null=True)
+    category = models.ForeignKey('CoursCategory', on_delete=models.SET_NULL, null=True)
     teachers = models.ManyToManyField('Teacher')
     is_visibil = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -48,6 +48,12 @@ class Course(models.Model):
 
     def __str__(self):
         return self.name
+
+class CoursCategory(models.Model):
+    Category_name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.Category_name
 
 # Model pentru curriculum
 class Curriculum(models.Model):
@@ -73,3 +79,13 @@ class CurriculumItem(models.Model):
 
     def __str__(self):
         return f"{self.curriculum_thems.title} - {self.objective}"
+
+class JoinUs(models.Model):
+    Fullname = models.CharField(max_length=255)
+    Email = models.EmailField()
+    Phone = models.CharField(max_length=255)
+    coursName = models.CharField(max_length=255, blank=True, null=True, default=None)
+    Checked = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.Fullname

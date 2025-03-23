@@ -23,6 +23,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', home, name='home'),
     path('courses/', courses, name='courses'),
-    path('course/<int:id>', course, name='course')
+    path('course/<int:id>', course, name='course'),
+    path('course/', courses_list, name='courses_list'),
+    path('joinUs/', joinUs, name='joinUs')
     # path('redirect-home/', go_home, name='go_home')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

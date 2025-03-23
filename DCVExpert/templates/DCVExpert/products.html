@@ -8,15 +8,17 @@
     <section class="searchbar">
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                    <form>
+                    <form method="GET" action="{% url 'courses_list' %}">
                         <div class="input-group mb-3">
-                            <select class="form-select" style="max-width: 250px;">
-                                    <option selected>All Categories</option>
-                                    <option value="1">Category 1</option>
-                                    <option value="2">Category 2</option>
-                                    <option value="3">Category 3</option>
+                            <select class="form-select" name="category_id" style="max-width: 250px;">
+                                <option selected>{{ categories.3.Category_name }}</option>
+                                {% for category in categories %}
+                                    {% if category.Category_name != 'Toate Categoriile' %}
+                                    <option value="{{ category.id }}">{{ category.Category_name }}</option>
+                                    {% endif %}
+                                {% endfor %}
                                 </select>
-                            <input type="text" class="form-control" placeholder="Search...">
+                            <input type="text" name="search_query" class="form-control" placeholder="Search...">
                             <button class="btn btn-primary" type="submit">Search</button>
                         </div>
                     </form>
