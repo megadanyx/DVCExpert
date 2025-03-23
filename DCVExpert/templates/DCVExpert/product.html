@@ -13,7 +13,7 @@
             </div>
             <div class="product_info">
                 <h1 class="product_name">{{ cours.name }}</h1>
-                <p class="product_shor_description">{{ cours.about.short_description }}</p>
+                <p class="product_shor_description">{{ cours.about.short_description  }}</p>
                 <p class="product_duration_time">Durata: <span class="duration_value">{{ cours.about.duration }}</span></p>
                 <p class="product_time">Grafic: <span class="grafic_value">{{ cours.about.schedule }}</span></p>
                 <p class="product_old_price">Preț: <span class="old_price_value">{{ cours.price.old_price }}</span></p>
@@ -27,51 +27,30 @@
                 <h2>Descriere generala: </h2>
                 <p>{{ cours.about.description | linebreaks  }}</p>
             </div>
+            {% if curriculum_themes %}
             <div class="curricula_object">
-            <div class="curicula_header">
-                <h2>Programul cursului</h2>
-                
-                <div class="module">
-                    <button class="module_header">Modul 1. Introducere, Noțiuni de bază</button>
-                    <div class="module_content">
-                        <ul>
-                            <li>Apariția și dezvoltarea tehnologiilor web</li>
-                            <li>Noțiunea de server, browser, pagină și site</li>
-                            <li>Ce reprezintă domeniu și hosting</li>
-                            <li>Cum este construită o aplicație web modernă</li>
-                            <li>Ce reprezintă frontend-ul unui site</li>
-                            <li>Ce este un limbaj de marcare (ML)</li>
-                            <li>Limbaje populare de marcare la moment</li>
-                            <li>Funcțiile unui limbaj de marcare</li>
-                            <li>Tehnologiile XML, HTML, XHTML prin comparație</li>
-                            <li>Evoluția limbajului HTML, standardele actuale</li>
-                            <li>Lucrare practică</li>
-                            <li>Exemplu practic de înregistrare domeniu și hosting gratuit</li>
-                            <li>Cum public un mini site?</li>
-                        </ul>
+                <div class="curicula_header">
+                    <h2>Programul cursului</h2>
+                    {% for theme in curriculum_themes %}
+                    <div class="module">
+                        <button class="module_header">{{ theme.title }}</button>
+                        <div class="module_content">
+                            <ul>
+                                {% for item in curriculum_items %}
+                                <!-- Verifică dacă obiectul CurriculumItem aparține temei curente -->
+                                {% if item.curriculum_thems == theme %}
+                                <li>{{ item.objective }}</li>
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
                     </div>
+                    {% endfor %}
+            {% else %}
+            {% endif %}
                 </div>
-        
-                <div class="module">
-                    <button class="module_header">Modul 2. Structura documentului</button>
-                    <div class="module_content">
-                        <ul>
-                            <li>...</li>
-                        </ul>
-                    </div>
-                </div>
-        
-                <div class="module">
-                    <button class="module_header">Modul 3. Clasificarea elementelor HTML</button>
-                    <div class="module_content">
-                        <ul>
-                            <li>...</li>
-                        </ul>
-                    </div>
-                </div>
-        
             </div>
-                </div>
+            {% comment %} <p>Nu sunt teme disponibile pentru acest curs.</p> {% endcomment %}
             <script>
                 document.querySelectorAll('.module_header').forEach(button => {
                     button.addEventListener('click', () => {
@@ -90,7 +69,7 @@
                                 <img src="{{ teacher.photo.url }}" alt="Gourse groupe" class="card_img">
                             </div>
                             <h3 class="benefit_cards_titles">{{ teacher.name }}</h3>
-                            <p class="benefits_card_desc">{{ teacher.short_description }}</p>
+                            <p class="benefits_card_desc">{{ teacher.short_description |slice:":227" }}...</p>
                             <a href="./product.html" class="benefits_card_more">VEZI DETALII</a>
                         </div>
                         {% endfor %} 

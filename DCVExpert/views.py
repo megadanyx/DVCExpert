@@ -3,13 +3,13 @@ from django.http import Http404
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.template import loader
-from .models import Price, CourseDescription, Teacher, Curriculum, CurriculumItem, Course
+from .models import *
 
 # Create your views here.
 
 def home(request):
     try:
-        courses = Course.objects.filter(is_visibil=True)
+        courses = Course.objects.filter(is_visibil=True).order_by('-created_at')[:3]
     except Poll.DoesNotExist:
         raise Http404("Poll does not exist")
     return render(request, 'DCVExpert/index.html',{'courses':courses})
@@ -36,10 +36,36 @@ def courses(request):
 #         raise Http404("Poll does not exist")
 #     return HttpResponse(template.render(context, request))
 def course(request, id):
+    # Obține cursul pe baza ID-ului
     course = get_object_or_404(Course, id=id)
-    teacher = course.teachers.all()  # Obține profesorii asociați cursului
 
-    return render(request, 'DCVExpert/product.html', {'cours': course, 'teachers': teacher})
+    # Obține curriculum-ul asociat cursului
+    curriculum = Curriculum.objects.filter(course=course).first()
+
+    if curriculum:
+        # Dacă există curriculum, caută temele și obiectivele
+        curriculum_themes = CurriculumThems.objects.filter(curriculum=curriculum)
+        curriculum_items = CurriculumItem.objects.filter(curriculum_thems__curriculum=curriculum)
+    else:
+        # Dacă nu există curriculum, setează listele ca fiind goale
+        curriculum_themes = []
+        curriculum_items = []
+
+    # Obține profesorii cursului
+    teachers = course.teachers.all()
+
+    # Creează un dicționar de context pentru template
+    context = {'cours': course, 'teachers': teachers}
+    
+    # Adaugă variabilele doar dacă există
+    if curriculum:
+        context['curriculum'] = curriculum
+        context['curriculum_themes'] = curriculum_themes
+        context['curriculum_items'] = curriculum_items
+    
+
+    # Răspunde cu datele obținute
+    return render(request, 'DCVExpert/product.html', context)
 
 # def go_home(request):
 #     return redirect('home')  # Redirecționează către pagina principală

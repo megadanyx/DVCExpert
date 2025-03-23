@@ -33,21 +33,6 @@ class Teacher(models.Model):
     def __str__(self):
         return self.name
 
-# Model pentru curriculum
-class Curriculum(models.Model):
-    number = models.PositiveIntegerField()
-    title = models.CharField(max_length=255)
-    
-    def __str__(self):
-        return f"{self.number}. {self.title}"
-
-# Model pentru elemente din curriculum
-class CurriculumItem(models.Model):
-    curriculumId = models.ForeignKey('Curriculum', on_delete=models.CASCADE)
-    name = models.CharField(max_length=255)
-
-    def __str__(self):
-        return f"{self.curriculumId.title} - {self.name}"
 
 # Model pentru cursuri
 class Course(models.Model):
@@ -55,7 +40,7 @@ class Course(models.Model):
     photo = models.ImageField(upload_to=course_image_upload_path)
     price = models.ForeignKey('Price', on_delete=models.SET_NULL, null=True)
     about = models.ForeignKey('CourseDescription', on_delete=models.SET_NULL, null=True)
-    curriculum = models.ForeignKey('Curriculum', on_delete=models.SET_NULL, null=True)
+    # curriculum = models.ForeignKey('Curriculum', on_delete=models.SET_NULL, null=True)
     teachers = models.ManyToManyField('Teacher')
     is_visibil = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -63,3 +48,28 @@ class Course(models.Model):
 
     def __str__(self):
         return self.name
+
+# Model pentru curriculum
+class Curriculum(models.Model):
+    course = models.OneToOneField('Course', on_delete=models.CASCADE, related_name='curriculum', null=True, blank=True)
+    curriculum_name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f"{self.course.name if self.course else 'No Course'}. {self.curriculum_name}"
+
+# Model pentru teme din curriculum
+class CurriculumThems(models.Model):
+    curriculum = models.ForeignKey(Curriculum, on_delete=models.CASCADE)
+    title = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f"{self.curriculum.curriculum_name} - {self.title}"
+
+# Model pentru obiectivele din curriculum
+class CurriculumItem(models.Model):
+    curriculum_thems = models.ForeignKey(CurriculumThems, on_delete=models.CASCADE, related_name='CurriculumThems', null=True, blank=True)
+    curriculum_cours = models.ForeignKey(Curriculum, on_delete=models.CASCADE,null=True, blank=True)
+    objective = models.CharField(max_length=255)
+
+    def __str__(self):
+        return f"{self.curriculum_thems.title} - {self.objective}"

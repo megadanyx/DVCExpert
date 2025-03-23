@@ -1,35 +1,6 @@
 {% extends 'DCVExpert/template_base.html' %}
 {% load static %}
     {% block content %}
-    <header class="header">
-        <nav class="nab-bar">
-            <div class="logo"><a href="{% url 'home' %}" class="logo_home">DCV Expert</a></div>
-            <ul class="nav-links">
-                <li><a href="{% url 'courses' %}">Oferte și reduceri</a></li>
-                <li><a href="#">Noutăți</a></li>
-                <li><a href="#">Recenzii</a></li>
-                <li><a href="#">Despre Noi</a></li>
-            </ul>
-            <div class="buttons">
-                <a href="#" class="login">
-                    Login
-                </a>
-                <div class="login-window">
-                    <form action="{% url 'home' %}" method="POST">
-                        {% comment %} {% csrf_token %} {% endcomment %}
-                        <label for="username">Username</label>
-                        <input type="text" id="username" name="username" required><br><br>
-                        <label for="password">Password</label>
-                        <input type="password" id="password" name="password" required><br><br>
-                        <button type="submit">Login</button>
-                    </form>
-                </div>
-                <a href="#" class="login">
-                    Sign In
-                </a>
-            </div>
-        </nav>
-    </header>
     <section class="hero">
         <div class="hero-text">
             <h1>Învață o nouă abilitate în fiecare zi, oricând și oriunde..</h1>
@@ -100,83 +71,34 @@
     </div>
     <section class="courses_section">
         <div class="Courses">
+            {% for Cours in courses %}
             <div class="Cours">
                 <div class="cours_img">
-                    <img src="./img/mathemetic/math_3.jpg" alt="Gourse groupe" class="cours_png">
+                    <img src="{{ Cours.photo.url }}" alt="Gourse groupe" class="cours_head_png">
                 </div>
-                <h3 class="cours_nam">Lorem, ipsum dolor.</h3>
-                <p class="cours_description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate
-                    laborum rem doloremque ad qui? Perferendis reprehenderit dolorum quaerat beatae nihil!</p>
+                <h3 class="cours_nam">{{ Cours.name }}</h3>
+                <p class="cours_description">{{ Cours.about.short_description |slice:":227" }}...</p>
                 <div class="cours_price">
-                    <p class="old_price">20 $</p>
-                    <p class="actual_price">10 $</p>
+                    <p class="old_price">{{ Cours.price.old_price }}</p>
+                    <p class="actual_price">{{ Cours.price.new_price }}</p>
                 </div>
                 <div class="cours_details">
-                    <img src="./img/course_detale_icons/icon akar-icons-calendar.png" alt="Clock_icon"
+                    <img src="{% static 'img/course_detale_icons/icon akar-icons-calendar.png' %}" alt="Clock_icon"
                         class="cours_png">
-                    <p class="cours_duration">15h 30min</p>
-                    <img src="./img/course_detale_icons/icon ant-design-area-chart-outlined.png" alt="chart_icon"
+                    <p class="cours_duration">{{ Cours.about.duration }}</p>
+                    <img src="{% static 'img/course_detale_icons/icon ant-design-area-chart-outlined.png' %}" alt="chart_icon"
                         class="cours_png">
-                    <p class="cours_lesson_count">10 Lessons</p>
-                    <img src="./img/course_detale_icons/icon carbon-chart-area-smooth.png" alt="chart_area_icon"
+                    <p class="cours_lesson_count">{{ Cours.about.lesson_count }} Lectii</p>
+                    <img src="{% static  '/img/course_detale_icons/icon carbon-chart-area-smooth.png' %}" alt="chart_area_icon"
                         class="cours_png">
                     <p class="cours_progress">Progress</p>
                 </div>
-                <a href="./product.html" class="cours_learn_more">MAI MULTE DETALII</a>
+                <a href="{% url 'course' Cours.id %}" class="cours_learn_more">MAI MULTE DETALII</a>
                 <div class="mar_botom"></div>
             </div>
-            <div class="Cours">
-                <div class="cours_img">
-                    <img src="./img/it_cours/it_1.jpg" alt="Gourse groupe" class="cours_png">
-                </div>
-                <h3 class="cours_nam">Lorem, ipsum dolor.</h3>
-                <p class="cours_description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate
-                    laborum rem doloremque ad qui? Perferendis reprehenderit dolorum quaerat beatae nihil!</p>
-                <div class="cours_price">
-                    <p class="old_price">20 $</p>
-                    <p class="actual_price">10 $</p>
-                </div>
-                <div class="cours_details">
-                    <img src="./img/course_detale_icons/icon akar-icons-calendar.png" alt="Clock_icon"
-                        class="cours_png">
-                    <p class="cours_duration">15h 30min</p>
-                    <img src="./img/course_detale_icons/icon ant-design-area-chart-outlined.png" alt="chart_icon"
-                        class="cours_png">
-                    <p class="cours_lesson_count">10 Lessons</p>
-                    <img src="./img/course_detale_icons/icon carbon-chart-area-smooth.png" alt="chart_area_icon"
-                        class="cours_png">
-                    <p class="cours_progress">Progress</p>
-                </div>
-                <a href="#2" class="cours_learn_more">MAI MULTE DETALII</a>
-                <div class="mar_botom"></div>
-            </div>
-            <div class="Cours">
-                <div class="cours_img">
-                    <img src="./img/desaign/disaign_1.jpg" alt="Gourse groupe" class="cours_png">
-                </div>
-                <h3 class="cours_nam">Lorem, ipsum dolor.</h3>
-                <p class="cours_description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate
-                    laborum rem doloremque ad qui? Perferendis reprehenderit dolorum quaerat beatae nihil!</p>
-                <div class="cours_price">
-                    <p class="old_price">20 $</p>
-                    <p class="actual_price">10 $</p>
-                </div>
-                <div class="cours_details">
-                    <img src="./img/course_detale_icons/icon akar-icons-calendar.png" alt="Clock_icon"
-                        class="cours_png">
-                    <p class="cours_duration">15h 30min</p>
-                    <img src="./img/course_detale_icons/icon ant-design-area-chart-outlined.png" alt="chart_icon"
-                        class="cours_png">
-                    <p class="cours_lesson_count">10 Lessons</p>
-                    <img src="./img/course_detale_icons/icon carbon-chart-area-smooth.png" alt="chart_area_icon"
-                        class="cours_png">
-                    <p class="cours_progress">Progress</p>
-                </div>
-                <a href="#2" class="cours_learn_more">MAI MULTE DETALII</a>
-                <div class="mar_botom"></div>
-            </div>
+                {% endfor %}
         </div>
-        <div class="courses_more"><a href="./products.html" class="course_more">Mai multe cursuri</a></div>
+        <div class="courses_more"><a href="{% url 'courses' %}" class="course_more">Mai multe cursuri</a></div>
     </section>
     <section class="join_us_form">
         <div class="join_us_form_wrap">
