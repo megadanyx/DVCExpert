@@ -1,0 +1,432 @@
+
+.hero {
+	width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 5%;
+}
+
+.hero-text {
+	/* display: flex; */
+    width: 50%;
+}
+
+.hero-text h1 {
+	font-weight: bold;
+    font-size: 55px;
+    line-height: 1.2;
+}
+
+/* .hero-text span {
+    color: #2489D3;
+    text-decoration: underline;
+} */
+
+.hero-text p {
+    margin-top: 15px;
+    font-size: 20px;
+    color: #000000;
+}
+
+.hero-buttons {
+    margin-top: 60px;
+	display: flex;
+	flex-wrap: wrap;
+	
+}
+/* .hero-buttons:last-child {
+	margin-left: 90px;
+} */
+
+.start-trial, .how-it-works {
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 19px;
+	/* margin-right: 50px; */
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.start-trial {
+    background: #24964f;
+    color: white;
+    border: none;
+    margin-left: 10px;
+    text-decoration: none;
+}
+.how-it-works {
+    /* max-width: 196px; */
+    margin-left: 60px;
+    background: white;
+    color: #0d2872;
+    border: 2px solid #35628f;
+    text-decoration: none;
+}
+
+.hero-image img {
+	/* margin: 50px auto; */
+    /* align-items: left; */
+    width: 100%;
+	height: 100%;
+    /* border-radius: 10px; */
+    /* width: 50%; */
+}
+
+.stats {
+	width: 50%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-left: 0px ;
+}
+
+.stat h2 {
+	font-weight: bold;
+    color: #24964f;
+    font-size: 35px;
+}
+
+.stat p {
+	width: 140px;
+    font-size: 20px;
+    color: #666;
+}
+
+.start-trial:hover, .start-trial:focus, .start-trial:active{
+	/* color: rgb(22, 12, 170); */
+	opacity: 0.75;
+    transform: scale(1.1); /* Mărește butonul cu 10% */
+    transition: transform 0.1s ease-in-out; /*Face animația mai fluidă*/
+}
+.how-it-works:hover, .how-it-works:focus, .how-it-works:active{
+	/* color: rgb(22, 12, 170); */
+	/* opacity: 0.75; */
+    transform: scale(1.1); /* Mărește butonul cu 10% */
+    transition: transform 0.1s ease-in-out; /*Face animația mai fluidă*/
+}
+.benefits{
+    margin-bottom: 40px;
+    margin-top: 60px;
+    }
+    
+    .benefit__wrap{
+        /* margin-left: 250px; */
+        max-width: 80%;
+        background-color: #fff;
+        margin: 0 auto;
+        margin-top: 50px;
+        box-shadow: 0px 2px 20px rgb(21,24,36,0.15993);
+        position: relative;
+        color: #000000;
+        justify-content: center;
+        border-radius: 80px;
+        margin-top: 100px;
+        /* display: flex; */
+        /* flex-wrap: wrap; */
+    }
+    .benefit_title{
+        width: 100%;
+        font-weight: 100;
+        font-size: 35px;
+        line-height: 42px;
+        padding: 50px 50px 50px 100px;
+        /* position: absolute; */
+        top:0;
+        left:0;
+        /* flex-wrap: wrap; */
+        
+    }
+    .benefit_cards{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap:65px;
+        padding: 0 100px;
+        /* display: flex; */
+    }
+    .card_benefit_cards_pic{
+       width: 100%;
+       height: 320px;
+        /* margin: 0 auto; */
+        object-fit: cover; /*Opțional, ajustează imaginea pentru a evita deformarea*/
+        display: block;
+    }
+    .card_img{
+        /* max-width: 250px; */
+        width: 100%;
+        height: 320px;
+        margin-bottom: 35px;
+        /* margin: 0 auto; */
+        object-fit: cover; 
+        display: block;
+        border-radius: 50px;
+    }
+    .benefit_cards_titles{
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 26px;
+        font-weight: bold;
+    }
+    .benefits_card_desc{
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 39px;
+    }
+    .benefits_card_more{
+        display: inline-block;
+        padding-right: 70px;
+        font-size: 16px;
+        line-height: 24px;
+        color: #33cccc;
+        text-decoration: none;
+        background: url(../img/right-arrow.png) no-repeat 95% center;
+        background-size: 40px 30px;
+        transition:  .2 all;
+    }
+    .benefits_card_more:hover, .benefits_card_more:focus{
+        background: url(../img/right-arrow.png) no-repeat right center;
+        background-size: 40px 30px;
+    }
+    .benefit_card{
+        margin-bottom: 112px;
+    }
+.motivation_speach{
+    margin: 0 auto;
+    max-width: 80%;
+}
+.motivation_text{
+    margin-left: 50px;
+    margin-bottom: 10px;
+}
+.motivation_descritptio{
+    max-width: 650px;
+    margin-left: 50px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+.courses_section{
+    /* width: 80%; */
+    margin: 0 auto;
+    max-width: 80%;
+}
+.Courses{
+    max-width: 100%;
+    /* background-color: #fff; */
+    margin: 0 auto;
+    margin-top: 50px;
+    /* box-shadow: 0px 2px 20px rgb(21,24,36,0.15993); */
+    position: relative;
+    color: #000000;
+    justify-content: center;
+}
+.Courses{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap:15px;
+    /* padding: 0 0px; */
+    /* display: flex; */
+}
+.Cours{
+    max-width: 400px;
+    margin-top: 10px;
+    background-color: #fff;
+    box-shadow: 0px 3px 35px rgba(10, 18, 18, 0.507);
+    /* align-content: center; */
+    margin-bottom: 10px;
+    margin-left: 8%;
+
+}
+.cours_nam{
+    margin-top: 10px;
+    margin-bottom: 10px; 
+    margin-left: 15px;   
+}
+.cours_description{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;   
+}
+.cours_img {
+	margin: 0 ;
+    width: auto;  /* Fixează lățimea */
+    height: 250px ; /* Fixează înălțimea */
+    /* border: 1px solid; */
+    /* display: flex;  Centrează imaginea dacă e necesar */
+    /* justify-content: center; */
+    /* align-items: center; */
+     overflow: hidden; 
+    /* position: relative; */
+    /* align-items: flex-start; */
+    top:0;
+    left:0;
+}
+
+.cours_head_png{
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+	width: 100%;
+    height: 250px;
+	/* margin: 0 auto; */
+    margin: 0;
+    padding: 0;
+    object-fit: cover; /* Face ca imaginea să acopere tot div-ul fără distorsiuni */  
+    display: block;
+    /* padding-right: 15px; */
+    /* margin-left: 0px; */
+    /* margin-right: 0px; */
+}
+.cours_learn_more{
+    border: 1px solid rgb(126, 124, 124);
+    padding: 5px;
+    margin-left: 20px;
+    display: inline-block;
+    padding-right: 70px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #33cccc;
+    text-decoration: none;
+    background: url(../img/right-arrow.png) no-repeat 90% center;
+    background-size: 40px 30px;
+    transition:  .2 all;
+    border-radius: 8px;
+}
+
+.cours_learn_more:hover, .cours_learn_more:focus{
+    background: url(../img/right-arrow.png) no-repeat 95% center;
+    background-size: 40px 30px;
+}
+.mar_botom{
+    margin-bottom: 20px;
+}
+.cours_price{
+    margin-left: 20px;
+    margin-bottom: 20px;
+    display: flex; /* Centrează imaginea dacă e necesar */
+    /* justify-content: center; */
+
+}
+.old_price{
+    text-decoration: line-through;
+    color: #7a7a7a;
+    margin-right: 10px;
+}
+.actual_price{
+    color: #33cccc;
+    margin-right: 10px;
+    /* font-weight: bold; */
+}
+
+.cours_details{
+    font-size: 16px;
+    color: #737373;
+    margin-left: 15px;
+    margin-bottom: 30px;
+    display: flex; /* Centrează imaginea dacă e necesar */
+    /* justify-content: center; */
+
+}
+.cours_details img{
+    max-width: 25px;
+    max-height: 25px;
+    padding-right: 8px;
+    /* justify-content: center; */
+}
+
+.cours_details p{
+    margin-right: 10px;
+    /* font-size: 14px; */
+}
+
+.Cours:hover , .Cours:focus{
+    transform: scale(1.05); /* Mărește butonul cu 1% */
+    transition: transform 0.2s ease-in-out; /*Face animația mai fluidă*/
+    border: 1px ridge #35628f;
+}
+
+.courses_more {
+    max-width: 80%;
+    margin: 0 auto;
+    height: 80px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centrează și pe verticală */
+    /* border-radius: 55px; */
+}
+
+.course_more {
+    background: white;
+    color: #33cccc;
+    border: 2px solid rgb(126, 124, 124);
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 19px;
+    cursor: pointer;
+    transition: transform 0.1s ease-in-out;
+    text-decoration: none;
+}
+
+.course_more:hover {
+    transform: scale(1.05);
+    transition: transform 0.1s ease-in-out; /* Face animația mai fluidă */
+}
+
+.join_us_form {
+    max-width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrează conținutul pe orizontală */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.join_us_form_wrap h2 {
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 42px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.join_us_form_wrap p {
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    padding: 0% 20% 0% 20%;
+}
+
+.join_us_form_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrează inputurile */
+    gap: 15px;
+    width: 100%;
+}
+
+.join_us_form_input {
+    width: 35%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.join_us_form_button {
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.join_us_form_button:hover {
+    background-color: #0056b3;
+}

@@ -3,6 +3,7 @@ from django.http import Http404
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.template import loader
+from django.urls import reverse
 from .models import *
 
 # Create your views here.
@@ -10,9 +11,12 @@ from .models import *
 def home(request):
     try:
         courses = Course.objects.filter(is_visibil=True).order_by('-created_at')[:3]
+        teachersToMenu = Teacher.objects.all()[:3]
+        context = {'courses':courses,'teachers':teachersToMenu}
+        
     except Poll.DoesNotExist:
         raise Http404("Poll does not exist")
-    return render(request, 'DCVExpert/index.html',{'courses':courses})
+    return render(request, 'DCVExpert/index.html',context)
 
 def courses(request):
     try:
@@ -75,15 +79,20 @@ def joinUs(request):
         fullname = request.POST.get('Fullname')
         phone = request.POST.get('Phone')
         email = request.POST.get('Email')
-
+        coursName = request.POST.get('coursName')
+        coursId = request.POST.get('coursId')
+    
         # Creăm și salvăm un nou obiect JoinUs
         join_us_entry = JoinUs(
             Fullname=fullname,
             Phone=phone,
             Email=email,
+            coursName=coursName
         )
         join_us_entry.save()  # Salvează obiectul în baza de date
-
+        # print('path ' + request.path_info)
+        if coursName:
+            return redirect(reverse('course', args=[coursId]))
         # Afișăm un mesaj de succes
         # messages.success(request, "Înscrierea a fost realizată cu succes!")
 

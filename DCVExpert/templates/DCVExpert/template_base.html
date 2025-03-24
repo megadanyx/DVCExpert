@@ -6,8 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Courser{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% block css %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'css/style.css' %}"> {% endcomment %}
     {% endblock css %}
 </head>
 
@@ -17,8 +18,8 @@
             <div class="logo"><a href="{% url 'home' %}" class="logo_home">DCV Expert</a></div>
             <ul class="nav-links">
                 <li><a href="{% url 'courses' %}">Oferte și reduceri</a></li>
+                <li><a href="#">Profesori</a></li>
                 <li><a href="#">Noutăți</a></li>
-                <li><a href="#">Recenzii</a></li>
                 <li><a href="#">Despre Noi</a></li>
             </ul>
             <div class="buttons">
@@ -95,24 +96,29 @@
         </div>
     </footer>
      <script>
-        // Detectează click-ul pe document
-        document.addEventListener('click', function(event) {
+        
+        document.addEventListener('DOMContentLoaded', function () {
             var loginButton = document.querySelector('.login'); // Butonul de login
             var loginWindow = document.querySelector('.login-window'); // Fereastra de login
-
-            // Verifică dacă click-ul nu a avut loc pe butonul Login sau fereastra Login
-            if (!loginButton.contains(event.target) && !loginWindow.contains(event.target)) {
-                loginWindow.style.display = 'none'; // Ascunde fereastra
-            }
-        });
-
-        // Dezvăluie fereastra când cursorul este pe butonul Login sau pe fereastra de login
-        document.querySelector('.login').addEventListener('mouseover', function() {
-            document.querySelector('.login-window').style.display = 'block';
-        });
-
-        document.querySelector('.login-window').addEventListener('mouseover', function() {
-            document.querySelector('.login-window').style.display = 'block';
+        
+            loginButton.addEventListener('click', function (event) {
+                // Previne propagarea evenimentului, astfel încât să nu se declanșeze document.addEventListener
+                event.stopPropagation();
+        
+                // Comută vizibilitatea ferestrei de login
+                if (loginWindow.style.display === 'block') {
+                    loginWindow.style.display = 'none';
+                } else {
+                    loginWindow.style.display = 'block';
+                }
+            });
+        
+            // Închide fereastra dacă se face click în afara ei și a butonului login
+            document.addEventListener('click', function (event) {
+                if (!loginButton.contains(event.target) && !loginWindow.contains(event.target)) {
+                    loginWindow.style.display = 'none';
+                }
+            });
         });
 
     </script> 

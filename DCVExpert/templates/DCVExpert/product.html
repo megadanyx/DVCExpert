@@ -76,14 +76,18 @@
                     </div>
                 </div>
             </section>
+
             <section class="join_us_form">
                 <div class="join_us_form_wrap">
                     <h2 class="join_us_form_title">Vreau sa ma inscriu la o lectie de proba</h2>
                     <p class="join_description_motivation">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis officia est repudiandae debitis beatae? Architecto magnam eius tenetur repudiandae quod tempora, fugiat, cumque pariatur at excepturi suscipit? Dignissimos magni quos ex placeat dolores. Eligendi eveniet numquam obcaecati, cum reiciendis nihil! Dignissimos voluptates natus laboriosam provident.</p>
-                    <form action="#" class="join_us_form_form">
-                        <input type="text" class="join_us_form_input" placeholder="Numele Prenumele">
-                        <input type="phone" class="join_us_form_input" placeholder="Telefon">
-                        <input type="email" class="join_us_form_input" placeholder="Email">
+                    <form method="POST" action="{% url 'joinUs' %}" class="join_us_form_form">
+                        {% csrf_token %}
+                        <input type="hidden" id="coursName" name="coursName" value="{{ cours.name }}">
+                        <input type="hidden" id="coursId" name="coursId" value="{{ cours.id }}">
+                        <input type="text" name="Fullname" class="join_us_form_input" placeholder="Numele Prenumele">
+                        <input type="phone" name="Phone" class="join_us_form_input" placeholder="Telefon">
+                        <input type="email" name="Email" class="join_us_form_input" placeholder="Email">
                         <button class="join_us_form_button">ÎNSCRIE-TE</button>
                     </form>
                 </div>

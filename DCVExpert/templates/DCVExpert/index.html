@@ -1,5 +1,8 @@
 {% extends 'DCVExpert/template_base.html' %}
 {% load static %}
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/index_style.css' %}">
+    {% endblock %}
     {% block content %}
     <section class="hero">
         <div class="hero-text">
@@ -31,35 +34,18 @@
     </section>
     <section class="benefits">
         <div class="benefit__wrap">
-            <h2 class="benefit_title">Lorem ipsum dolor sit.</h2>
+            <h2 class="benefit_title">Profesorii noștri</h2>
             <div class="benefit_cards">
+                {% for teacher in teachers %}
                 <div class="benefit_card">
                     <div class="benefit_cards_pic">
-                        <img src="./img/mortarboard.png" alt="Gourse groupe" class="card_img">
+                        <img src="{{ teacher.photo.url }}" alt="Gourse groupe" class="card_img">
                     </div>
-                    <h3 class="benefit_cards_titles">Lorem, ipsum dolor.</h3>
-                    <p class="benefits_card_desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi omnis
-                        est ad nemo ex delectus, non adipisci repellendus maxime provident officiis, qui!</p>
+                    <h3 class="benefit_cards_titles">{{ teacher.name }}</h3>
+                    <p class="benefits_card_desc">{{ teacher.short_description |slice:":227" }}...</p>
                     <a href="./product.html" class="benefits_card_more">VEZI DETALII</a>
                 </div>
-                <div class="benefit_card">
-                    <div class="benefit_cards_pic">
-                        <img src="./img/books.png" alt="Gourse groupe" class="card_img">
-                    </div>
-                    <h3 class="benefit_cards_titles">Lorem, ipsum dolor.</h3>
-                    <p class="benefits_card_desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi omnis
-                        est ad nemo ex delectus, non adipisci repellendus maxime provident officiis, qui!</p>
-                    <a href="#1" class="benefits_card_more">VEZI DETALII</a>
-                </div>
-                <div class="benefit_card">
-                    <div class="benefit_cards_pic">
-                        <img src="./img/workplace.png" alt="Gourse groupe" class="card_img">
-                    </div>
-                    <h3 class="benefit_cards_titles">Lorem, ipsum dolor.</h3>
-                    <p class="benefits_card_desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi omnis
-                        est ad nemo ex delectus, non adipisci repellendus maxime provident officiis, qui!</p>
-                    <a href="#1" class="benefits_card_more">VEZI DETALII</a>
-                </div>
+                {% endfor %} 
             </div>
         </div>
     </section>
