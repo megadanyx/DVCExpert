@@ -152,3 +152,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'photos')
 
 LOGIN_REDIRECT_URL = '/admin'
 LOGOUT_REDIRECT_URL = 'home'
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://dvcexpert.onrender.com',  # adaugă acest domeniu
+]
