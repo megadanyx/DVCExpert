@@ -85,8 +85,8 @@ nav {
 .login-window {
     display: none;
     position: absolute;
-    top: 60px;
-    left: 0;
+    top: 90px;
+    left: auto;
     width: 300px;
     background-color: #f1f1f1;
     border: 1px solid #ccc;
@@ -96,9 +96,9 @@ nav {
     border-radius: 5px;
 }
 
-.login:hover + .login-window {
+/* .login:hover + .login-window {
     display: block;
-}
+} */
 
 /* Stiluri pentru formular login */
 .login-window input, .newsletter_form input {
