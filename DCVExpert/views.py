@@ -1,5 +1,6 @@
 from django.shortcuts import render,get_object_or_404
 from django.http import Http404
+from django.http import JsonResponse
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.template import loader
@@ -99,3 +100,12 @@ def joinUs(request):
         return redirect('home')  # Redirecționăm utilizatorul către pagina home sau altă pagină
 
     return redirect('home')  # Redirecționează la pagina formularului
+
+
+def course_suggestions(request):
+    search_query = request.GET.get('search_query', '')  # Obține textul din input
+    if search_query:
+        suggestions = Course.objects.filter(name__icontains=search_query)[:5]  # Găsește primele 5 cursuri
+        suggestions_list = list(suggestions.values('id', 'name'))  # Convertește în listă de dicționare
+        return JsonResponse(suggestions_list, safe=False)
+    return JsonResponse([], safe=False)

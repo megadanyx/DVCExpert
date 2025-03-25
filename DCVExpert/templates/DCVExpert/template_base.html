@@ -22,13 +22,20 @@
                 <li><a href="#">Noutăți</a></li>
                 <li><a href="#">Despre Noi</a></li>
             </ul>
+            {% if user.is_authenticated %}
+            <div class="buttons">
+                <a href="{% url 'logout' %}" class="login">
+                    Logout
+                </a>
+            </div>
+            {% else %}
             <div class="buttons">
                 <a href="#" class="login">
                     Login
                 </a>
                 <div class="login-window">
-                    <form action="{% url 'home' %}" method="POST">
-                        {% comment %} {% csrf_token %} {% endcomment %}
+                    <form action="{% url 'login' %}" method="POST">
+                        {% csrf_token %}
                         <label for="username">Username</label>
                         <input type="text" id="username" name="username" required><br><br>
                         <label for="password">Password</label>
@@ -40,6 +47,7 @@
                     Sign In
                 </a>
             </div>
+            {% endif %}
         </nav>
     </header>
     {% block content %}
@@ -96,7 +104,7 @@
         </div>
     </footer>
      <script>
-        
+
         document.addEventListener('DOMContentLoaded', function () {
             var loginButton = document.querySelector('.login'); // Butonul de login
             var loginWindow = document.querySelector('.login-window'); // Fereastra de login

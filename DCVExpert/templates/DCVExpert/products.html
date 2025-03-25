@@ -19,6 +19,7 @@
                                 {% endfor %}
                                 </select>
                             <input type="text" name="search_query" class="form-control" placeholder="Search...">
+                            <div id="suggestions-box" class="suggestions-box"></div>
                             <button class="btn btn-primary" type="submit">Search</button>
                         </div>
                     </form>
@@ -54,5 +55,55 @@
             </div>
             {% endfor %}
         </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                let searchInput = document.querySelector('input[name="search_query"]');
+                let suggestionsBox = document.getElementById("suggestions-box");
+            
+                searchInput.addEventListener("input", function() {
+                    let query = this.value.trim();
+            
+                    if (query.length > 1) {  // Min. 2 caractere pentru a începe căutarea
+                        fetch(`/course-suggestions/?search_query=${query}`)
+                            .then(response => response.json())
+                            .then(data => {
+                                suggestionsBox.innerHTML = "";  // Golește sugestiile anterioare
+                                suggestionsBox.style.display = "block"; // Afișează sugestiile
+            
+                                if (data.length > 0) {
+                                    data.forEach(course => {
+                                        let suggestion = document.createElement("div");
+                                        suggestion.textContent = course.name;
+                                        suggestion.classList.add("suggestion-item");
+            
+                                        // Click pe sugestie → completează input-ul și redirecționează
+                                        suggestion.addEventListener("click", function() {
+                                            searchInput.value = course.name;
+                                            suggestionsBox.style.display = "none";
+                                        });
+            
+                                        suggestionsBox.appendChild(suggestion);
+                                    });
+                                } else {
+                                    suggestionsBox.innerHTML = "<div class='no-suggestions'>Niciun rezultat</div>";
+                                }
+                            })
+                            .catch(error => console.error("Eroare la căutare:", error));
+                    } else {
+                        suggestionsBox.innerHTML = "";
+                        suggestionsBox.style.display = "none"; // Ascunde sugestiile dacă textul e prea scurt
+                    }
+                });
+            
+                // Ascunde sugestiile când utilizatorul dă click în afara inputului și sugestiilor
+                document.addEventListener("click", function(event) {
+                    if (!searchInput.contains(event.target) && !suggestionsBox.contains(event.target)) {
+                        suggestionsBox.innerHTML = "";
+                        suggestionsBox.style.display = "none";
+                    }
+                });
+            });
+            
+        </script>
     </section>
     {% endblock %}

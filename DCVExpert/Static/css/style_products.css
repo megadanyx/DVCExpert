@@ -82,6 +82,43 @@
 	outline: none;
     border-radius: 8px;
 }
+.input-group {
+    display: flex;
+    align-items: center;
+    position: relative; /* Asigură poziționarea corectă a sugestiilor */
+}
+
+.suggestions-box {
+    position: absolute;
+    top: 100%; /* Apare direct sub input */
+    left: 0;
+    width: 100%;
+    max-width: 300px;  /* Ajustează dacă este necesar */
+    background: white;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 5px; /* Spațiu mic sub input */
+    display: none; /* Inițial ascuns */
+    margin-left: 280px;
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+.suggestion-item:hover {
+    background-color: #f2f2f2;
+}
+
+.no-suggestions {
+    padding: 10px;
+    color: #888;
+    text-align: center;
+}
 .courses_section{
     /* width: 80%; */
     margin: 0 auto;

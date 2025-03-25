@@ -19,12 +19,17 @@ from django.urls import path,include
 from .views import *
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     path('', home, name='home'),
     path('courses/', courses, name='courses'),
     path('course/<int:id>', course, name='course'),
     path('course/', courses_list, name='courses_list'),
-    path('joinUs/', joinUs, name='joinUs')
+    path('joinUs/', joinUs, name='joinUs'),
+    path('course-suggestions/', course_suggestions, name='course_suggestions'),
+    path('login/', auth_views.LoginView.as_view(), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout')
     # path('redirect-home/', go_home, name='go_home')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
