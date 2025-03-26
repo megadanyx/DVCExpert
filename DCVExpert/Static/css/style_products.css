@@ -285,3 +285,68 @@
     transform: scale(1.1);
     transition: transform 0.1s ease-in-out; /* Face animația mai fluidă */
 }
+
+/* COURSES SECTION */
+@media (max-width: 768px) {
+    .Courses {
+        grid-template-columns: 1fr;
+    }
+
+    .Cours {
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    .cours_img {
+        height: 200px;
+    }
+
+    .cours_head_png {
+        height: 200px;
+    }
+}
+
+/* JOIN US FORM */
+@media (max-width: 768px) {
+    .join_us_form_wrap p {
+        padding: 0 10%;
+    }
+
+    .join_us_form_input {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .searchbar {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .row {
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .form-select, .form-control {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .input-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .suggestions-box {
+        max-width: 100%;
+        margin-left: 0;
+    }
+}

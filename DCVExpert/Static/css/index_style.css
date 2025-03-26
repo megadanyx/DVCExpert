@@ -430,3 +430,92 @@
 .join_us_form_button:hover {
     background-color: #0056b3;
 }
+
+
+/* HERO SECTION */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .hero-text {
+        width: 100%;
+    }
+
+    .hero-text h1 {
+        font-size: 30px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .start-trial, .how-it-works {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .hero-image img {
+        width: 100%;
+    }
+
+    .stats {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat {
+        margin-bottom: 15px;
+    }
+}
+
+/* BENEFITS SECTION */
+@media (max-width: 768px) {
+    .benefit__wrap {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .benefit_cards {
+        grid-template-columns: 1fr;
+        grid-row-gap: 20px;
+    }
+}
+
+/* COURSES SECTION */
+@media (max-width: 768px) {
+    .Courses {
+        grid-template-columns: 1fr;
+    }
+
+    .Cours {
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    .cours_img {
+        height: 200px;
+    }
+
+    .cours_head_png {
+        height: 200px;
+    }
+}
+
+/* JOIN US FORM */
+@media (max-width: 768px) {
+    .join_us_form_wrap p {
+        padding: 0 10%;
+    }
+
+    .join_us_form_input {
+        width: 90%;
+    }
+}

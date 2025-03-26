@@ -360,3 +360,85 @@ ul li {
     .join_us_form_button:hover {
         background-color: #0056b3;
     }
+
+    @media (max-width: 768px) {
+        /* Container produs */
+        .mine_product {
+            max-width: 100%;
+            padding: 10px;
+        }
+    
+        /* Head produs */
+        .product_head {
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+        }
+    
+        /* Imagini produs */
+        .product_img, .product_image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            padding: 5px;
+        }
+    
+        /* Informații produs */
+        .product_info {
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+        }
+    
+        .product_name {
+            font-size: 24px;
+        }
+    
+        .product_shor_description {
+            font-size: 16px;
+        }
+    
+        .product_price {
+            font-size: 18px;
+        }
+    
+        .buttn_buy button {
+            width: 100%;
+            font-size: 14px;
+        }
+    
+        /* Descriere lungă */
+        .long_description {
+            padding: 10px;
+        }
+    
+        /* Beneficii */
+        .benefit__wrap {
+            max-width: 100%;
+            padding: 10px;
+        }
+    
+        .benefit_title {
+            font-size: 28px;
+            text-align: center;
+        }
+    
+        .benefit_cards {
+            grid-template-columns: 1fr;
+            padding: 0;
+        }
+    
+        .card_img {
+            height: 250px;
+        }
+    
+        /* Formulare */
+        .join_us_form_wrap p {
+            padding: 0 5%;
+        }
+    
+        .join_us_form_input {
+            width: 90%;
+        }
+    }
+    
