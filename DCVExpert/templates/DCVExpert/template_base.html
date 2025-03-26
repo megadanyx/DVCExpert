@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Courser{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <script  type="text/javascript" src="{% static 'scripts/base.js' %}"></script>
     {% block css %}
     {% comment %} <link rel="stylesheet" href="{% static 'css/style.css' %}"> {% endcomment %}
     {% endblock css %}
 </head>
-
 <body>
     <header class="header">
         <nav class="nab-bar">
@@ -44,9 +44,24 @@
                         {% comment %} <div id="loading-spinner" class="hidden">Loading...</div> {% endcomment %}
                     </form>
                 </div>
-                <a href="#" class="login">
+                <a href="#" class="signin">
                     Sign In
                 </a>
+                <div class="signin-window">
+                    <form action="{% url 'login' %}" method="POST" id="sign-form">
+                        {% csrf_token %}
+                        <label for="username">Username</label>
+                        <input type="text" class="username" name="username" required><br><br>
+                        <label for="name">Nume Prenume</label>
+                        <input type="text" class="namesurname" name="namesurname" required><br><br>
+                        <label for="Email">Email</label>
+                        <input type="Email" class="Email" name="Email" required><br><br>
+                        <label for="password">Password</label>
+                        <input type="password" icclasslassd="password" name="password" required><br><br>
+                        <button type="submit" class="sign-button">Login</button>
+                        {% comment %} <div id="loading-spinner" class="hidden">Loading...</div> {% endcomment %}
+                    </form>
+                </div>
             </div>
             {% endif %}
         </nav>
@@ -107,51 +122,5 @@
             <p>&copy; 2025 All Rights Reserved</p>
         </div>
     </footer>
-     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var loadingOverlay = document.getElementById('loading-overlay');
-            var bodyContent = document.querySelector('body');
-        
-            // Ascunde overlay-ul după ce pagina s-a încărcat complet
-            if (loadingOverlay) {
-                loadingOverlay.classList.add('hidden');
-                bodyContent.classList.remove('blurred'); // Elimină efectul de blur dacă există
-            }
-        
-            // Dacă ai un formular de login, asigură-te că overlay-ul apare doar la trimitere
-            var loginForm = document.getElementById('login-form');
-            if (loginForm) {
-                loginForm.addEventListener('submit', function () {
-                    loadingOverlay.classList.remove('hidden'); // Afișează overlay-ul doar când formularul este trimis
-                });
-            }
-        });
-        
-        document.addEventListener('DOMContentLoaded', function () {
-            var loginButton = document.querySelector('.login'); // Butonul de login
-            var loginWindow = document.querySelector('.login-window'); // Fereastra de login
-
-            loginButton.addEventListener('click', function (event) {
-                // Previne propagarea evenimentului, astfel încât să nu se declanșeze document.addEventListener
-                event.stopPropagation();
-        
-                // Comută vizibilitatea ferestrei de login
-                if (loginWindow.style.display === 'block') {
-                    loginWindow.style.display = 'none';
-                } else {
-                    loginWindow.style.display = 'block';
-                }
-            });
-
-
-            // Închide fereastra dacă se face click în afara ei și a butonului login
-            document.addEventListener('click', function (event) {
-                if (!loginButton.contains(event.target) && !loginWindow.contains(event.target)) {
-                    loginWindow.style.display = 'none';
-                }
-            });
-        });
-
-    </script> 
 </body>
 </html>
