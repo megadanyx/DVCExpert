@@ -24,7 +24,7 @@
             </ul>
             {% if user.is_authenticated %}
             <div class="buttons">
-                <a href="{% url 'logout' %}" class="login">
+                <a href="{% url 'logout' %}" class="logout">
                     Logout
                 </a>
             </div>
@@ -34,13 +34,14 @@
                     Login
                 </a>
                 <div class="login-window">
-                    <form action="{% url 'login' %}" method="POST">
+                    <form action="{% url 'login' %}" method="POST" id="login-form">
                         {% csrf_token %}
                         <label for="username">Username</label>
                         <input type="text" id="username" name="username" required><br><br>
                         <label for="password">Password</label>
                         <input type="password" id="password" name="password" required><br><br>
-                        <button type="submit">Login</button>
+                        <button type="submit" id="login-button">Login</button>
+                        {% comment %} <div id="loading-spinner" class="hidden">Loading...</div> {% endcomment %}
                     </form>
                 </div>
                 <a href="#" class="login">
@@ -50,12 +51,15 @@
             {% endif %}
         </nav>
     </header>
+     <div id="loading-overlay" class="hidden">
+        <div class="spinner"></div>
+    </div> 
     {% block content %}
     {% endblock %}
     <footer class="footer">
         <div class="footer_container">
             <div class="footer_section contact_info">
-                <img src="LogoFile" alt="MyLogo" class="footer_logo">
+                <img src="#" alt="MyLogo" class="footer_logo">
                 <h3>Call us</h3>
                 <p><strong>800 388 80 90</strong> or <strong>667 234 32 67</strong></p>
                 <p>mihai.rotari.nicolai@gmail.com</p>
@@ -104,11 +108,29 @@
         </div>
     </footer>
      <script>
-
+        document.addEventListener('DOMContentLoaded', function () {
+            var loadingOverlay = document.getElementById('loading-overlay');
+            var bodyContent = document.querySelector('body');
+        
+            // Ascunde overlay-ul după ce pagina s-a încărcat complet
+            if (loadingOverlay) {
+                loadingOverlay.classList.add('hidden');
+                bodyContent.classList.remove('blurred'); // Elimină efectul de blur dacă există
+            }
+        
+            // Dacă ai un formular de login, asigură-te că overlay-ul apare doar la trimitere
+            var loginForm = document.getElementById('login-form');
+            if (loginForm) {
+                loginForm.addEventListener('submit', function () {
+                    loadingOverlay.classList.remove('hidden'); // Afișează overlay-ul doar când formularul este trimis
+                });
+            }
+        });
+        
         document.addEventListener('DOMContentLoaded', function () {
             var loginButton = document.querySelector('.login'); // Butonul de login
             var loginWindow = document.querySelector('.login-window'); // Fereastra de login
-        
+
             loginButton.addEventListener('click', function (event) {
                 // Previne propagarea evenimentului, astfel încât să nu se declanșeze document.addEventListener
                 event.stopPropagation();
@@ -120,7 +142,8 @@
                     loginWindow.style.display = 'block';
                 }
             });
-        
+
+
             // Închide fereastra dacă se face click în afara ei și a butonului login
             document.addEventListener('click', function (event) {
                 if (!loginButton.contains(event.target) && !loginWindow.contains(event.target)) {
