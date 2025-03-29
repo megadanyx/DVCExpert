@@ -9,42 +9,42 @@
             <h1>Învață o nouă abilitate în fiecare zi, oricând și oriunde..</h1>
             <p> O Serie de cursuri <strong>online</strong> care acoperă o gama de domenii tehnologice și obiecte
                 generale, pentru ca tu să înveți și să explorezi noi oportunități.</p>
-            <div class="hero-buttons">
-                <a href="{% url 'courses' %}" class="start-trial">Începe cursurile</a>
-                <a class="how-it-works">Cum funcționează</a>
-            </div>
-        </div>
-        <div class="hero-image">
-            <img src="{% static 'img/learnign_2_export.png' %}" alt="Learning Image">
-        </div>
-        <div class="stats">
-            <div class="stat">
-                <h2>10+</h2>
-                <p>Diverse cursuri</p>
-            </div>
-            <div class="stat">
-                <h2>500+</h2>
-                <p>Elevi au finisat cursurile</p>
-            </div>
-            <div class="stat">
-                <h2>20+</h2>
-                <p>Profesori cu experienta</p>
-            </div>
-        </div>
-    </section>
-    <section class="benefits">
-        <div class="benefit__wrap">
-            <h2 class="benefit_title">Profesorii noștri</h2>
-            <div class="benefit_cards">
-                {% for teacher in teachers %}
-                <div class="benefit_card">
-                    <div class="benefit_cards_pic">
-                        <img src="{{ teacher.photo.url }}" alt="Gourse groupe" class="card_img">
-                    </div>
-                    <h3 class="benefit_cards_titles">{{ teacher.name }}</h3>
-                    <p class="benefits_card_desc">{{ teacher.short_description |slice:":227" }}...</p>
-                    <a href="./product.html" class="benefits_card_more">VEZI DETALII</a>
+                <div class="hero-buttons">
+                    <a href="{% url 'courses' %}" class="start-trial">Începe cursurile</a>
+                    <a class="how-it-works">Cum funcționează</a>
                 </div>
+            </div>
+            <div class="hero-image">
+                <img src="{% static 'img/learnign_2_export.png' %}" alt="Learning Image">
+            </div>
+            <div class="stats">
+                <div class="stat">
+                    <h2>10+</h2>
+                    <p>Diverse cursuri</p>
+                </div>
+                <div class="stat">
+                    <h2>500+</h2>
+                    <p>Elevi au finisat cursurile</p>
+                </div>
+                <div class="stat">
+                    <h2>20+</h2>
+                    <p>Profesori cu experienta</p>
+                </div>
+            </div>
+        </section>
+        <section class="benefits">
+            <div class="benefit__wrap">
+                <h2 class="benefit_title">Profesorii noștri</h2>
+                <div class="benefit_cards">
+                    {% for teacher in teachers %}
+                    <div class="benefit_card">
+                        <div class="benefit_cards_pic">
+                            <img src="{{ teacher.photo.url }}" alt="Gourse groupe" class="card_img">
+                        </div>
+                        <h3 class="benefit_cards_titles">{{ teacher.name }}</h3>
+                        <p class="benefits_card_desc">{{ teacher.short_description |slice:":227" }}...</p>
+                        <a href="./product.html" class="benefits_card_more">VEZI DETALII</a>
+                    </div>
                 {% endfor %} 
             </div>
         </div>
@@ -54,36 +54,36 @@
         <p class="motivation_descritptio">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias voluptas
             placeat tempore eius voluptatem fuga quasi similique eum iure assumenda molestias recusandae animi quae
             fugiat, nemo nobis mollitia vero sapiente deserunt! Voluptatibus ab a harum?</p>
-    </div>
-    <section class="courses_section">
-        <div class="Courses">
-            {% for Cours in courses %}
-            <div class="Cours">
-                <div class="cours_img">
-                    <img src="{{ Cours.photo.url }}" alt="Gourse groupe" class="cours_head_png">
-                </div>
-                <h3 class="cours_nam">{{ Cours.name }}</h3>
-                <p class="cours_description">{{ Cours.about.short_description |slice:":227" }}...</p>
-                <div class="cours_price">
-                    <p class="old_price">{{ Cours.price.old_price }}</p>
-                    <p class="actual_price">{{ Cours.price.new_price }}</p>
-                </div>
-                <div class="cours_details">
-                    <img src="{% static 'img/course_detale_icons/icon akar-icons-calendar.png' %}" alt="Clock_icon"
-                        class="cours_png">
-                    <p class="cours_duration">{{ Cours.about.duration }}</p>
-                    <img src="{% static 'img/course_detale_icons/icon ant-design-area-chart-outlined.png' %}" alt="chart_icon"
-                        class="cours_png">
-                    <p class="cours_lesson_count">{{ Cours.about.lesson_count }} Lectii</p>
-                    <img src="{% static  '/img/course_detale_icons/icon carbon-chart-area-smooth.png' %}" alt="chart_area_icon"
-                        class="cours_png">
-                    <p class="cours_progress">Progress</p>
-                </div>
-                <a href="{% url 'course' Cours.id %}" class="cours_learn_more">MAI MULTE DETALII</a>
-                <div class="mar_botom"></div>
-            </div>
-                {% endfor %}
         </div>
+        <section class="courses_section">
+            <div class="Courses">
+                {% for Cours in courses %}
+                <div class="Cours">
+                    <div class="cours_img">
+                        <img src="{{ Cours.photo.url }}" alt="Gourse groupe" class="cours_head_png">
+                    </div>
+                    <h3 class="cours_nam">{{ Cours.name }}</h3>
+                    <p class="cours_description">{{ Cours.about.short_description |slice:":227" }}...</p>
+                    <div class="cours_price">
+                        <p class="old_price">{{ Cours.price.old_price }}</p>
+                        <p class="actual_price">{{ Cours.price.new_price }}</p>
+                    </div>
+                    <div class="cours_details">
+                        <img src="{% static 'img/course_detale_icons/icon akar-icons-calendar.png' %}" alt="Clock_icon"
+                        class="cours_png">
+                        <p class="cours_duration">{{ Cours.about.duration }}</p>
+                        <img src="{% static 'img/course_detale_icons/icon ant-design-area-chart-outlined.png' %}" alt="chart_icon"
+                        class="cours_png">
+                        <p class="cours_lesson_count">{{ Cours.about.lesson_count }} Lectii</p>
+                        <img src="{% static  '/img/course_detale_icons/icon carbon-chart-area-smooth.png' %}" alt="chart_area_icon"
+                        class="cours_png">
+                        <p class="cours_progress">Progress</p>
+                    </div>
+                    <a href="{% url 'course' Cours.id %}" class="cours_learn_more">MAI MULTE DETALII</a>
+                    <div class="mar_botom"></div>
+                </div>
+                {% endfor %}
+            </div>
         <div class="courses_more"><a href="{% url 'courses' %}" class="course_more">Mai multe cursuri</a></div>
     </section>
     <section class="join_us_form">
@@ -99,4 +99,5 @@
             </form>
         </div>
     </section>
+    <script  type="text/javascript" src="{% static 'scripts/index.js' %}"></script>
     {% endblock %}

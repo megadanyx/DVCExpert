@@ -43,9 +43,21 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
-    document.querySelector(".menu-toggle").addEventListener("click", function() {
-        document.querySelector(".nav-links").classList.toggle("nav-active");
-    });
 
+    menuToggle = document.querySelector(".menu-toggle")
+    navBarLinks   = document.querySelector(".nav-links")
+
+    menuToggle.addEventListener("click", function() {
+        // menuToggle.classList.toggle('active')
+        navBarLinks.classList.toggle("nav-active");
+
+
+        if (navBarLinks.classList.contains('nav-active')) {
+            menuToggle.innerHTML = '&#10006;'; // simbolul ✖
+        } else {
+            menuToggle.innerHTML = '☰'; // simbolul inițial
+        }
+
+    });
 
 });        

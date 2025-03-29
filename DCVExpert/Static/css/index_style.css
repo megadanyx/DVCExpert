@@ -431,6 +431,76 @@
     background-color: #0056b3;
 }
 
+/* Carousel animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Carousel navigation */
+.teacher-carousel-nav {
+    display: none; /* Hidden by default, will be shown on mobile */
+    justify-content: center;
+    gap: 65%;
+    position: absolute;
+    top: 56%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 10;
+
+}
+.course-carousel-nav {
+    display: none; /* Hidden by default, will be shown on mobile */
+    justify-content: center;
+    gap: 75%;
+    position: absolute;
+    top: 40%;
+    left: 0;
+    right: 0;
+    transform: translateY(-70%);
+    /* transform: translateX(-10%); */
+    z-index: 10;
+}
+.course-carousel-nav .course-prev-btn{
+    transform: translateX(-70%);
+}
+.course-carousel-nav .course-next-btn{
+    transform: translateX(70%);
+}
+.teacher-carousel-nav .teacher-prev-btn{
+    transform: translateX(-60%);
+}
+.teacher-carousel-nav .teacher-next-btn{
+    transform: translateX(60%);
+
+}
+
+.teacher-prev-btn,
+.teacher-next-btn,
+.course-prev-btn,
+.course-next-btn {
+    background-color: #4CAF50; /* Ajustează culoarea pentru a se potrivi cu tema site-ului */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.teacher-prev-btn:hover,
+.teacher-next-btn:hover,
+.course-prev-btn:hover,
+.course-next-btn:hover {
+    background-color: #45a049;
+}
+
 
 /* HERO SECTION */
 @media (max-width: 768px) {
@@ -457,7 +527,7 @@
     }
 
     .start-trial, .how-it-works {
-        width: 100%;
+        width: 80%;
         margin: 5px 0;
     }
 
@@ -474,23 +544,20 @@
     .stat {
         margin-bottom: 15px;
     }
-}
-
-/* BENEFITS SECTION */
-@media (max-width: 768px) {
+    .benefit_title{
+        padding: 20px 20px 50px 20px;
+    }
     .benefit__wrap {
-        max-width: 100%;
+        max-width: 90%;
         padding: 10px;
     }
 
     .benefit_cards {
         grid-template-columns: 1fr;
-        grid-row-gap: 20px;
+        grid-row-gap: 10px;
+        padding: 20px 20px 20px 20px;
     }
-}
 
-/* COURSES SECTION */
-@media (max-width: 768px) {
     .Courses {
         grid-template-columns: 1fr;
     }
@@ -507,10 +574,7 @@
     .cours_head_png {
         height: 200px;
     }
-}
 
-/* JOIN US FORM */
-@media (max-width: 768px) {
     .join_us_form_wrap p {
         padding: 0 10%;
     }
@@ -518,4 +582,41 @@
     .join_us_form_input {
         width: 90%;
     }
+    .benefit_cards {
+        display: block; /* Override any flex or grid display */
+    }
+    
+    .benefit_card {
+        width: 100%;
+        margin: 0 auto;
+        animation: fadeIn 0.8s ease-in-out;
+        margin-bottom: 30px;
+    }
+    
+    .teacher-carousel-nav {
+        display: flex;
+        grid-row-gap: 50px;
+    }
+     /* Ajustări pentru secțiunea cursuri */
+     .courses_section {
+         position: relative; /* Asigură contextul de poziționare pentru butoanele de navigare */
+     }
+     
+     .Courses {
+         display: block !important; /* Suprascrie orice afișare flex sau grid */
+     }
+     
+     .Cours {
+         width: 100% !important;
+         margin: 0 auto !important;
+         animation: fadeIn 0.5s ease-in-out;
+         /* margin-bottom: 50px; */
+     }
+     .cours_learn_more{
+        margin-bottom: 20px;
+     }
+     
+     .course-carousel-nav {
+         display: flex;
+     }
 }
