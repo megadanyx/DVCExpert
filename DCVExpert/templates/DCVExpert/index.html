@@ -1,8 +1,9 @@
 {% extends 'DCVExpert/template_base.html' %}
 {% load static %}
     {% block css %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="{% static 'css/index_style.css' %}">
-    {% endblock %}
+    {% endblock css%}
     {% block content %}
     <section class="hero">
         <div class="hero-text">
@@ -32,23 +33,26 @@
                 </div>
             </div>
         </section>
-        <section class="benefits">
-            <div class="benefit__wrap">
-                <h2 class="benefit_title">Profesorii noștri</h2>
-                <div class="benefit_cards">
-                    {% for teacher in teachers %}
-                    <div class="benefit_card">
-                        <div class="benefit_cards_pic">
-                            <img src="{{ teacher.photo.url }}" alt="Gourse groupe" class="card_img">
-                        </div>
-                        <h3 class="benefit_cards_titles">{{ teacher.name }}</h3>
-                        <p class="benefits_card_desc">{{ teacher.short_description |slice:":227" }}...</p>
-                        <a href="./product.html" class="benefits_card_more">VEZI DETALII</a>
+        <h2 class="benefit_title">Profesorii noștri</h2>
+        <div class="benefits swiper">
+            <div class="swiper-button-prev"></div>
+            <div class="benefit_cards swiper-wrapper">
+                {% for teacher in teachers %}
+                <div class="benefit_card swiper-slide">
+                    <div class="png_teach"> 
+                        <img src="{{ teacher.photo.url }}" alt="Course groupe" class="card_img">
                     </div>
+                    <h3 class="benefit_cards_titles">{{ teacher.name }}</h3>
+                    <p class="benefits_card_desc">{{ teacher.short_description }}...</p>
+                    <a href="./product.html" class="benefits_card_more">VEZI DETALII</a>
+                </div>
                 {% endfor %} 
+                <!-- If we need navigation buttons -->
             </div>
+            <div class="swiper-button-next"></div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
         </div>
-    </section>
     <div class="motivation_speach">
         <h2 class="motivation_text">Lorem ipsum dolor sit amet.</h2>
         <p class="motivation_descritptio">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias voluptas
@@ -99,5 +103,41 @@
             </form>
         </div>
     </section>
-    <script  type="text/javascript" src="{% static 'scripts/index.js' %}"></script>
+    <script type="module">
+        import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const swiper = new Swiper('.swiper', {  // Changed from '.swiper-wrapper' to '.swiper'
+                // Optional parameters
+                loop: true,
+                spaceBetween: 20,
+
+              
+                // If we need pagination
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    dynamicBullets: true
+                },
+              
+                // Navigation arrows
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1
+                    },
+                    768: {
+                        slidesPerView: 1
+                    },
+                    1024: {
+                        slidesPerView: 3
+                    },
+                }
+            });
+        });
+    </script>
+    {% comment %} <script  type="text/javascript" src="{% static 'scripts/index.js' %}"></script> {% endcomment %}
     {% endblock %}

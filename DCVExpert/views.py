@@ -12,7 +12,7 @@ from .models import *
 def home(request):
     try:
         courses = Course.objects.filter(is_visibil=True).order_by('-created_at')[:3]
-        teachersToMenu = Teacher.objects.all()[:3]
+        teachersToMenu = Teacher.objects.all()[:4]
         context = {'courses':courses,'teachers':teachersToMenu}
         
     except Poll.DoesNotExist:

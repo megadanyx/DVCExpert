@@ -107,13 +107,17 @@
     transition: transform 0.1s ease-in-out; /*Face animația mai fluidă*/
 }
 .benefits{
-    margin-bottom: 40px;
-    margin-top: 60px;
-    }
+    /* margin-bottom: 40px; */
+    width: 80%;
+    /* height: 100%; */
+    justify-content: center;
+    /* position: relative; */
+    /* margin-top: 60px; */
+}
     
-    .benefit__wrap{
+    /* .benefit__wrap{ */
         /* margin-left: 250px; */
-        max-width: 80%;
+        /* max-width: 80%;
         background-color: #fff;
         margin: 0 auto;
         margin-top: 50px;
@@ -122,63 +126,72 @@
         color: #000000;
         justify-content: center;
         border-radius: 80px;
-        margin-top: 100px;
+        margin-top: 100px; */
         /* display: flex; */
         /* flex-wrap: wrap; */
-    }
-    .benefit_title{
-        width: 100%;
+    /* } */
+.benefit_title{
+        width: 80%;
         font-weight: 100;
         font-size: 35px;
-        line-height: 42px;
-        padding: 50px 50px 50px 100px;
+        line-height: 62px;
+        padding: 0px 0px 20px 13%;
+        /* font-weight: bold; */
         /* position: absolute; */
-        top:0;
-        left:0;
+        /* top:0;
+        left:0; */
         /* flex-wrap: wrap; */
         
-    }
-    .benefit_cards{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-column-gap:65px;
-        padding: 0 100px;
+ }
+.benefit_cards{
+        display: flex;
+        /* justify-content: center; */
+        /* grid-template-columns: repeat(3, 1fr); */
+        /* grid-column-gap:65px; */
+        /* padding: 0px 60px 0px 60px;  */
         /* display: flex; */
+        /* flex-wrap: wrap; */
     }
-    .card_benefit_cards_pic{
-       width: 100%;
-       height: 320px;
-        /* margin: 0 auto; */
-        object-fit: cover; /*Opțional, ajustează imaginea pentru a evita deformarea*/
+    .benefit_card{
+        padding: 0px 0px 0px 50px;
+        /* margin-bottom: 20px; */
+        /* margin-top: 60px; */
+        height: 80vh;
+        /* width: 10vh; */
         display: block;
+        position: relative;
+        /* justify-content: center;  */
     }
-    .card_img{
-        /* max-width: 250px; */
+    .png_teach {
+        display: flex;  /* Activează Flexbox */
+        justify-content: center;  /* Centrează pe orizontală */
+        align-items: center;  /* Centrează pe verticală (dacă este necesar) */
+        width: 90%;
+        height: 45vh;
+    }
+    .card_img {
         width: 100%;
-        height: 320px;
-        margin-bottom: 35px;
-        /* margin: 0 auto; */
-        object-fit: cover; 
-        display: block;
+        height: auto; /* Evită distorsiuni */
         border-radius: 50px;
     }
     .benefit_cards_titles{
-        font-weight: 500;
+        /* font-weight: 500px; */
         font-size: 18px;
         line-height: 24px;
         margin-bottom: 26px;
+        margin-top: 26px;
         font-weight: bold;
     }
     .benefits_card_desc{
         font-size: 16px;
-        line-height: 24px;
+        /* line-height: 24px; */
         margin-bottom: 39px;
     }
     .benefits_card_more{
-        display: inline-block;
+        /* display: inline-block; */
         padding-right: 70px;
         font-size: 16px;
-        line-height: 24px;
+        /* line-height: 24px; */
         color: #33cccc;
         text-decoration: none;
         background: url(../img/right-arrow.png) no-repeat 95% center;
@@ -189,9 +202,9 @@
         background: url(../img/right-arrow.png) no-repeat right center;
         background-size: 40px 30px;
     }
-    .benefit_card{
-        margin-bottom: 112px;
-    }
+    /* .swiper-button-prev{
+            transform: translateX(-70%);
+    } */
 .motivation_speach{
     margin: 0 auto;
     max-width: 80%;
@@ -543,8 +556,8 @@
 
     .stat {
         margin-bottom: 15px;
-    }
-    .benefit_title{
+        }
+    /* .benefit_title{
         padding: 20px 20px 50px 20px;
     }
     .benefit__wrap {
@@ -552,11 +565,11 @@
         padding: 10px;
     }
 
-    .benefit_cards {
-        grid-template-columns: 1fr;
-        grid-row-gap: 10px;
-        padding: 20px 20px 20px 20px;
-    }
+    .benefit_cards { */
+        /* grid-template-columns: 1fr; */
+        /* grid-row-gap: 10px;
+        padding: 20px 20px 20px 20px; */
+    /* } */
 
     .Courses {
         grid-template-columns: 1fr;
@@ -582,21 +595,21 @@
     .join_us_form_input {
         width: 90%;
     }
-    .benefit_cards {
-        display: block; /* Override any flex or grid display */
+     /* .benefit_cards {
+        display: block; 
     }
     
     .benefit_card {
         width: 100%;
         margin: 0 auto;
         animation: fadeIn 0.8s ease-in-out;
-        margin-bottom: 30px;
-    }
+
+    } */
     
-    .teacher-carousel-nav {
+    /* .teacher-carousel-nav {
         display: flex;
         grid-row-gap: 50px;
-    }
+    }  */
      /* Ajustări pentru secțiunea cursuri */
      .courses_section {
          position: relative; /* Asigură contextul de poziționare pentru butoanele de navigare */
@@ -620,3 +633,7 @@
          display: flex;
      }
 }
+/* .swiper {
+    width: 600px;
+    height: 300px;
+  } */
